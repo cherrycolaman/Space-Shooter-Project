@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private Vector3 currentVelocity;
     private float maxSpeedSqr;
 
+    public GameObject bulletPrefab;
+
     private void Start()
     {
         acceleration = maxSpeed / accelerationTime;
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour
             moveDirection += Vector3.right;
         if (Input.GetKey(KeyCode.A))
             moveDirection += Vector3.left;
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Shoot();
+        }
 
         if (moveDirection.sqrMagnitude > 0)
         {
@@ -64,4 +71,8 @@ public class Player : MonoBehaviour
         transform.position += currentVelocity * Time.deltaTime;
     }
 
+    private void Shoot()
+    {
+        Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+    }
 }
