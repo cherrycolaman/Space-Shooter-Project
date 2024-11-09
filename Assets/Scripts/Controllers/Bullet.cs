@@ -6,15 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     private Vector3 velocity;
+    public float acceleration;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += speed * Vector3.up * Time.deltaTime;
+        velocity += acceleration * speed * Vector3.up * Time.deltaTime;
+        transform.position += velocity * Time.deltaTime;
     }
 }
