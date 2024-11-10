@@ -11,6 +11,7 @@ public class Missile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.Find("Player").transform;
         moveDirection = Vector3.Normalize(playerTransform.position - transform.position);
     }
 
