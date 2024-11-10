@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
         {
             speed = speed * -1;
         }
-        if (timer > 3)
+        if (timer > 1.5)
         {
             Instantiate(missilePrefab, transform.position, Quaternion.identity);
             timer = 0;
