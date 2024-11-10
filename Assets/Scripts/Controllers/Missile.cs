@@ -13,6 +13,7 @@ public class Missile : MonoBehaviour
     {
         playerTransform = GameObject.Find("Player").transform;
         moveDirection = Vector3.Normalize(playerTransform.position - transform.position);
+        transform.Rotate(0, 0, (Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg) + 90);
     }
 
     // Update is called once per frame
